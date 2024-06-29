@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style .css">
+</head>
+<body>
+    <div id="overlay"></div>
+    <div id="parent">
+        <!-- <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div> -->
+    </div>
+
+    <script>
+   var parent=document.querySelector("#parent")
+    var overlay=document.querySelector("#overlay")
+
+        for(var i=1;i<=1000;i++){
+               var box = document.createElement("box")
+               box.classList.add("box")
+            //    console.log(box)
+             parent.appendChild(box)
+
+        var code =    Democode()
+           
+                 box.style.backgroundColor="#"+code
+                 box.innerText="#"+code
+
+          box.addEventListener(
+            "click",
+        function(e){
+            navigator.clipboard.writeText("#"+code)
+               overlay.innerText="copy"
+                // alert(e.target.innerText)
+                overlay.style.backgroundColor=e.target.innerText
+                overlay.style.transform="scale(1)"
+
+
+                setTimeout(
+                    function() {
+                        overlay.style.transform="scale(0)"
+                }, 1000);
+        }
+    )
+          
+
+        }
+
+        function Democode(){
+            var r=parseInt(Math.random()*256).toString(16)
+             var g=parseInt(Math.random()*256) .toString(16)
+             var b=parseInt(Math.random()*256).toString(16)
+
+
+
+             
+            //  console.log("#"+r+g+b);
+
+                 var code =r+g+b
+
+                 if(code.length <6){
+                    return Democode()
+                }
+                else{
+                    return code
+                }
+            }
+    </script>
+</body>
+</html>
